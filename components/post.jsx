@@ -1,5 +1,6 @@
 'use client'
 import Link from "next/link";
+import Image from "next/image";
 
 function Post({author,title,image,date,content}){
 
@@ -10,7 +11,7 @@ function Post({author,title,image,date,content}){
         <div className="max-w-4xl mx-auto p-4">
         <div className="bg-white shadow-md rounded-lg overflow-hidden">
           
-          <img
+          <Image
             className="w-full h-64 md:h-80 lg:h-96 object-cover object-center"
             src={image}
             alt="Blog Image"

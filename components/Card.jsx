@@ -1,5 +1,6 @@
 
 import Link from "next/link";
+import Image from "next/image";
 function Card({author,title,image,date,desc,id}){
     const newDate=new Date(date);
     const localDate=newDate.toLocaleString();
@@ -7,7 +8,7 @@ function Card({author,title,image,date,desc,id}){
     
     return(
         <div class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
-        <img
+        <Image
             src={image} class="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56 btn-"/>
         <p class="bg-green-500 flex items-center leading-none text-sm font-medium text-gray-50 pt-1.5 pr-3 pb-1.5 pl-3
             rounded-full uppercase inline-block">News</p>

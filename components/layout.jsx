@@ -4,6 +4,7 @@ import Card from "./Card";
 import { getBlogs } from "@/lib/api";
 import {Suspense} from 'react';
 import { Redirect } from "next";
+import Image from "next/image";
 
 
 
@@ -49,15 +50,25 @@ async function Layout(){
       </div>
       <div class="w-full md:w-1/2">
         <div className="block">
-          <img
+          <Image
               src="https://contenthub-static.grammarly.com/blog/wp-content/uploads/2017/11/how-to-write-a-blog-post.jpeg" class="object-cover rounded-lg max-h-64 sm:max-h-96 btn- w-full h-full"/>
         </div>
       </div>
     </div>
     <div class="grid grid-cols-12 sm:px-5 gap-x-8 gap-y-16">
-    {dataArray.map((blog)=>{
-                return (<Card author={blog.author} title={blog.title} image={blog.urlToImage} date={blog.publishedAt} desc={blog.description} id={blog.id}/>)
-            })}
+    {dataArray.map((blog, index) => {
+    return (
+        <Card 
+            key={index} // Add the key prop here
+            author={blog.author} 
+            title={blog.title} 
+            image={blog.urlToImage} 
+            date={blog.publishedAt} 
+            desc={blog.description} 
+            id={blog.id}
+        />
+    );
+})}
     </div>
   </div>
 </div>

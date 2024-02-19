@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link';
 import { useState } from 'react';
-
+import Image from 'next/image';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const menuClasses = isOpen ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full';
@@ -11,7 +11,7 @@ export default function Navbar() {
       <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between">
           <a href="#">
-            <img className="w-auto h-6 sm:h-11" src="https://clipart-library.com/data_images/74590.png" alt="" />
+            <Image className="w-auto h-6 sm:h-11" src="https://clipart-library.com/data_images/74590.png" alt="" />
           </a>
 
           <div className="flex md:hidden">
