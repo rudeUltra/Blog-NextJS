@@ -16,7 +16,6 @@ export default function Page(props){
     useEffect(()=>{
         const fetchData = async () => {
             const blog=await getBlogById(blogId);
-            console.log(blog)
             setData(blog);
         };
         fetchData();
