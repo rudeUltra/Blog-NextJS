@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     </head>
     
-      <body className={inter.className}>{children}</body>
+      <body suppressHydrationWarning={true} className={inter.className}>{children}</body>
       
     </html>
   );

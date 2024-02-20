@@ -13,7 +13,7 @@ function Card({author,title,image,date,desc,id}){
             rounded-full uppercase inline-block">News</p>
         <a class="text-lg font-bold sm:text-xl md:text-2xl">{title}</a>
         <p class="text-sm text-black">{desc}</p>
-        <Link href={`/${id}`}>
+        <Link href={`/posts/${id}`}>
         <button  className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
               Read More
         </button>
