@@ -8,8 +8,8 @@ function Post({author,title,image,date,content}){
     const localDate=newDate.toLocaleString();
 
     return(
-        <div className="max-w-4xl mx-auto p-4">
-        <div className="bg-white shadow-md rounded-lg overflow-hidden">
+        <div className="max-w-4xl mx-auto p-4 ">
+        <div className="bg-white shadow-lg shadow-orange-400 rounded-lg overflow-hidden">
           
           <img
             className="w-full h-64 md:h-80 lg:h-96 object-cover object-center"

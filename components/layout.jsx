@@ -1,9 +1,27 @@
+'use client'
+
 import Card from "./Card";
+import SearchForm from "./search";
 import { getNewBlogs } from "@/lib/api";
 
-async function Layout() {
+import { useState } from "react";
 
-  const dataArray = await getNewBlogs();
+function Layout({data}) {
+  const dataArray=JSON.parse(data)
+
+  // const [searchQuery, setSearchQuery] = useState('');
+  const [filteredData, setFilteredData] = useState(dataArray);
+
+  // Function to handle search
+  const handleSearch = (searchQuery) => {
+    const filtered = dataArray.filter(blog => blog.title.toLowerCase().includes(searchQuery.toLowerCase()));
+    setFilteredData(filtered);
+  };
+
+  // Function to handle clear
+  const handleClear = () => {
+    setFilteredData(dataArray);
+  };
 
   return (
 
@@ -32,21 +50,22 @@ async function Layout() {
             </div>
           </div>
         </div>
+        <SearchForm handleSearch={handleSearch} handleClear={handleClear} />
         <div className="grid grid-cols-12 sm:px-5 gap-x-8 gap-y-16">
-          {dataArray.map((blog, index) => {
-            return (
-              <Card
-                key={index}
-                author={blog.author}
-                title={blog.title}
-                image={blog.urlToImage}
-                date={blog.publishedAt}
-                desc={blog.description}
-                id={blog.id}
-              />
-            );
-          })}
+        {filteredData.map((blog, index) => (
+          <Card
+            key={index}
+            author={blog.author}
+            title={blog.title}
+            image={blog.urlToImage}
+            date={blog.publishedAt}
+            desc={blog.description}
+            id={blog.id}
+          />
+        ))}
         </div>
+        
+        
       </div>
     </div>
   );
